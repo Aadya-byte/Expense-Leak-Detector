@@ -1,55 +1,44 @@
-# Expense-Leak-Detector
+# Person 1 - Expense Data & Linked List (OOP core)
 
-> Track • Analyze • Save • Be Better
+**Phase 2 delivery - about 40%% of the planned work.**
 
-A C++ based Expense Management System that helps users record, manage,
-analyze, and monitor their spending using OOP and Data Structures &
-Algorithms.
+**Share of the supplied source delivered:** 91% of the supplied Person 1 source (foundation module: every other module depends on it).
 
-## Project Objectives
+## What is done (40%)
 
-- Manage and organize expense records efficiently.
-- Analyze spending patterns and identify high-spending categories.
-- Detect potential expense leaks using predefined rules.
-- Demonstrate practical implementation of OOP and DSA concepts in C++.
+- Expense class: fixed-size char arrays (no STL), constructors, getters, validating setters, isValid(), display()
+- Validation: real calendar dates in DD-MM-YYYY (leap years), non-negative paise, non-empty bounded text, ONE_TIME/RECURRING with consistent NONE/DAILY/WEEKLY/MONTHLY frequency
+- ExpenseNode: singly-linked-list node (stores one Expense by value + next pointer)
+- ExpenseManager: addExpense (unique auto ID), addLoadedExpense (keeps file ID, rejects duplicates), deleteExpense (head / middle / last / missing ID), findExpenseById, getCount, getNextExpenseId, getHead, copyExpensePointers (for search/sort), displayExpenses
+- Destructor releases every node; copy constructor / assignment disabled to prevent double deletion
+- person1_test.cpp: unit tests for validation, add/find/delete, loaded IDs, pointer copy, empty list
 
-## Technologies & Concepts
+## What is NOT done yet (remaining 60%)
 
-- **Language:** C++
-- **OOP:** Classes, Encapsulation, Member Functions
-- **DSA:** Vector, Map, Stack, Queue
-- **Algorithms:** Searching & Sorting
-- **File Handling:** Data persistence and file I/O
+- editExpense() (edit an existing record, keep its ID)
+- clearExpenses() (reset list)
+- RecurringExpense : public Expense (inheritance) with frequency + projected monthly amount, virtual monthly-estimate method
+- operator> (compare expenses by amount) and a friend display helper
+- ExpenseTypes.h shared constants, extended edge-case test-suite, complexity write-up
 
-## Main Modules
+## Folder layout
 
-- Expense Management
-- File Handling & Data Persistence
-- Expense Analysis
-- Search & Sort
-- Leak Detection
-- Stack-based Undo System
-- Queue-based Alert System
-- Budget Management
-- GUI & Integration
+- `src/` - this member's own files: Expense.h, Expense.cpp, ExpenseNode.h, ExpenseNode.cpp, ExpenseManager.h, ExpenseManager.cpp
+- `tests/` - person1_test.cpp
+- `API.md` - public functions delivered and pending
 
-## Team
+- `Makefile` - `make test` compiles and runs this module's test
 
-| Member   | Responsibility                   |
-|----------|----------------------------------|
-| Person 1 | Expense Management + Vector      |
-| Person 2 | File Handling + Data Persistence |
-| Person 3 | Analysis + Map                   |
-| Person 4 | Search + Sort + Leak Detection   |
-| Person 5 | Stack + Undo System              |
-| Person 6 | Queue + Alerts + Budget + GUI    |
+## Build and test
 
-## Project Status
+```sh
+make test
+```
 
-**In Development**
+Expected output: `All Person 1 (40% scope) tests passed.`
 
-More details, screenshots, and documentation will be added as the project progresses.
+## Rules followed
 
----
-
-**One System • Multiple Modules • Smart Spending**
+- C++11, no STL containers or algorithms (`vector`, `list`, `map`, `stack`, `sort()` ... are not used).
+- Money is stored as integer paise (15000 = Rs. 150.00); dates are DD-MM-YYYY.
+- One shared `Expense` / `ExpenseManager` definition (Person 1's); no module keeps a second master list of expenses.
