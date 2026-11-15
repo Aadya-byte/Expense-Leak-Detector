@@ -2,20 +2,24 @@
 
 ## Build and run the Windows GUI
 
-Install MinGW-w64 with `g++` available on `PATH`, then run this from any
-PowerShell location:
+Install MinGW-w64 with `g++` and `objdump` available on `PATH`, then run this
+from any PowerShell location:
 
 ```powershell
-& 'C:\path\to\project\Person6\build_gui.ps1'
+powershell.exe -NoProfile -ExecutionPolicy Bypass `
+  -File 'C:\path\to\project\Person6\build_gui.ps1'
 ```
 
-The script builds `expense_leak_detector_gui.exe` in the project root and
-launches it. The GUI uses the same `expense.txt` snapshot as the console app.
-The supplied GUI source and its adapter are `GUI.cpp` and `GuiLogic.cpp`; the
-backend modules remain shared and unchanged.
+The script statically links the GCC runtimes, checks the resulting DLL imports,
+and creates `dist\Expense Leak Detector Portable` with the GUI executable,
+`expense.txt` (copied only if that distribution folder does not already have
+one), and `README.txt`. It then launches the packaged app. The original
+`expense_leak_detector_gui.exe` is not overwritten. Use `-NoRun` to build and
+package without launching the GUI.
 
-To build without immediately launching the GUI, run the same compiler command
-in the script and omit the final `& .\expense_leak_detector_gui.exe` line.
+The GUI uses the same plain-text `expense.txt` snapshot as the console app. Its
+source and adapter are `GUI.cpp` and `GuiLogic.cpp`; the backend modules remain
+shared and unchanged.
 
 The application uses Person 1's `Expense` and `ExpenseManager` as the shared
 model. Person 2's persistence module stores a plain-text, pipe-delimited
