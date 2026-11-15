@@ -1,0 +1,41 @@
+MONTHLY EXPENSE REPORT
+November 2026
+Transactions: 2
+
+ID       | Date       | Amount       | Category           | Type         | Frequency  | Merchant
+--------+------------+--------------+--------------------+--------------+------------+----------------
+1        | 14-11-2026 | Rs. 100      | Food               | RECURRING    | WEEKLY     | Momo cafe
+3        | 11-11-2026 | Rs. 1400     | Food               | RECURRING    | WEEKLY     | cafe
+--------------------------------------------------------------------------------
+Total spending: Rs. 1500
+
+SPENDING LEAK REPORT - 11/2026
+================================================================================
+                 EXPENSE LEAK DETECTION & SPENDING PATTERN REPORT               
+================================================================================
+Total Expenses Analyzed : 2
+Total Spending Recorded : Rs. 1500
+Analysis Date Range     : 11-11-2026 to 14-11-2026
+Unique Spending Channels: 2
+Detected Leak Patterns  : 0
+--------------------------------------------------------------------------------
+[SECTION 1: REPEATED SPENDING PATTERNS & IDENTIFIED LEAKS]
+  No repeated spending patterns or recurring leak channels detected.
+--------------------------------------------------------------------------------
+[SECTION 2: CATEGORY VOLUME DISTRIBUTION]
+  Category: Food
+    - Total Spend  : Rs. 1500 (2 transactions)
+--------------------------------------------------------------------------------
+[SECTION 3: MONTHLY SPENDING DISTRIBUTION (ACTUAL DATES)]
+  Month [11-2026] : Total Rs. 1500 across 2 transactions
+--------------------------------------------------------------------------------
+[SECTION 4: POLICY & CONTRACT COMPLIANCE]
+  - Spending Leak Criteria : Frequency-based pattern detection (Category:Merchant).
+  - Waste Classification   : Categories not automatically labeled wasteful due to high totals.
+  - Monthly Aggregation    : Formed strictly from validated DD-MM-YYYY calendar dates.
+  - Forecasting & Advice   : Excluded by contract design; owned exclusively by Person 5.
+================================================================================
+
+MONTHLY FORECAST
+Actual spending: Rs. 1500
+Projected month-end spending: Rs. 3214.28
